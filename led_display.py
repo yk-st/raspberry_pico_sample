@@ -19,3 +19,4 @@ while True:
     
     lcd.putstr("Hello\nI'm METAELE")
     time.sleep(1)
+    lcd.clear()
