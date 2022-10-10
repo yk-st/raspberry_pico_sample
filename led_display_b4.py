@@ -4,7 +4,7 @@ import smbus
 import time
 
 # I2C通信の設定
-I2C_ADDR  = 0x3f                                                                              # I2Cアドレス
+I2C_ADDR  = 0x27
 LCD_WIDTH = 16   # 表示文字数の上限
 LCD_CHR = 1 # 文字列送信モードの識別子
 LCD_CMD = 0 # コマンド送信モードの識別子
