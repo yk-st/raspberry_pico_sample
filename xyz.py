@@ -12,11 +12,11 @@ class mpu6050:
     def __init__(self, scl, sda):
         self.scl = scl
         self.sda = sda
-        self.i2c = I2C(1,scl = self.scl, sda = self.sda, freq = 100000)
-        #slv = self.i2c.scan()
-        self.slvAddr = 104 #slv[0]
+        self.i2c = I2C(0,scl = self.scl, sda = self.sda, freq = 100000)
+        slv = self.i2c.scan()
+        self.slvAddr = slv[0] #slv[0]
         # レジスタをリセットする
-        self.writeByte(0x6B,0x80)   
+        self.writeByte(0x6B,0x80) 
         sleep(0.1)     
 
         # PWR_MGMT_1をクリア
@@ -39,5 +39,5 @@ class mpu6050:
         return s
 
 while True:
-    x,y,z = mpu6050(sda=Pin(12), scl=Pin(13)).readXYZ
+    x,y,z = mpu6050(sda=Pin(0), scl=Pin(1)).readXYZ
     print('x:',x,'y:',y,'z:',z,'uint:mg')
